@@ -12,7 +12,11 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.post('/ldaplogin', (req, res) => {
     let accessCode = '88888';
     if (accessCode == req.body.password) {
-        res.status(200).send();
+        let successResponse = {
+            "tokenSuccess": "true",
+            "migrationRequired": "true"
+        };
+        res.status(200).send(successResponse);
     } else {
         let errorResponse = {
             "version": "1.0",
