@@ -16,6 +16,7 @@ app.post('/ldaplogin', (req, res) => {
             "tokenSuccess": "true",
             "migrationRequired": "true"
         };
+        console.log("Success Response: ", successResponse);
         res.status(200).send(successResponse);
     } else {
         let errorResponse = {
@@ -27,6 +28,7 @@ app.post('/ldaplogin', (req, res) => {
             "developerMessage": `The provided password ${req.body.password} does not match the expected code for user.`,
             "moreInfo": "https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         };
+        console.log("Error Response: ", errorResponse);
         res.status(409).send(errorResponse);
     }
 });
